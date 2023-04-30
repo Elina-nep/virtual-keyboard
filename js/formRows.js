@@ -1,23 +1,4 @@
-import formFifthRow from "./formFifthRow.js";
-import formFourthRow from "./formFourthRow.js";
-import formSecondRow from "./formSecondRow.js";
-import formThirdRow from "./formThirdRow.js";
-import formTopRow from "./formTopRow.js";
+import KEYBOARD_ROWS from "./keyboardRows.js";
 
-const formRows = (number) => {
-  switch (number) {
-    case 1:
-      return formTopRow();
-    case 2:
-      return formSecondRow();
-    case 3:
-      return formThirdRow();
-    case 4:
-      return formFourthRow();
-    case 5:
-      return formFifthRow();
-    default:
-      return "";
-  }
-};
+const formRows = (number) => KEYBOARD_ROWS[number];
 export default formRows;

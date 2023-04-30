@@ -3,7 +3,8 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: "airbnb-base",
+  plugins: ["import"],
+  extends: ["airbnb-base"],
   overrides: [],
   parserOptions: {
     ecmaVersion: "latest",
@@ -12,8 +13,31 @@ module.exports = {
   rules: {
     quotes: [2, "double", "avoid-escape"],
     "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
+    // "import/extensions": "always",
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        js: "always",
+      },
+    ],
+    "comma-dangle": [
+      "error",
+      {
+        arrays: "always-multiline",
+        objects: "always-multiline",
+        imports: "always-multiline",
+        exports: "always-multiline",
+        functions: "never",
+      },
+    ],
+    "operator-linebreak": [
+      "error",
+      "after",
+      { overrides: { "?": "ignore", ":": "ignore" } },
+    ],
   },
-  resolve: {
-    extensions: ".js",
-  },
+  // resolve: {
+  //   extensions: ".js",
+  // },
 };

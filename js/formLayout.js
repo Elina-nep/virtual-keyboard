@@ -7,7 +7,7 @@ const formLayout = () => `
     <main class="body--keyboard keyboard" id="keyboard">
       ${formKeyboard()}
     </main>
-    <p class="description">Клавиатура создана в операционной системе Windows</p>
+    <p class="description">Клавиатура создана в операционной системе MacOS</p>
     <p class="language">Для переключения языка комбинация: левыe ctrl + alt</p>
   </div>
     `;
