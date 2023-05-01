@@ -2,7 +2,7 @@ import parseCommandKeys from "./parseCommandKeys.js";
 import findNonHiddenKey from "./findNonHiddenKey.js";
 import checkIfSpecial from "./checkIfSpecial.js";
 
-const addListener = (type, keys, textarea, capsShift, cursorPosition) => {
+const addListener = (keys, textarea, capsShift, cursorPosition) => {
   keys.forEach((element) => {
     element.addEventListener("mousedown", () => {
       const activeKey = findNonHiddenKey(element);
