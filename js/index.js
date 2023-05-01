@@ -33,16 +33,16 @@ window.addEventListener("DOMContentLoaded", () => {
     cursorPosition.position = textarea.selectionStart;
   });
 
-  addListener("key", keys, textarea, capsShift, cursorPosition);
+  addListener(keys, textarea, capsShift, cursorPosition);
   document.addEventListener("keydown", (e) => {
     e.preventDefault();
-    highlightKey(e.code, keys, "down", textarea, cursorPosition);
+    highlightKey(e.code, keys, true, textarea, cursorPosition);
     checkIfSpecial(e.code, keys, capsShift);
     changeLang(e.code, keys, lang);
   });
   document.addEventListener("keyup", (e) => {
     e.preventDefault();
-    highlightKey(e.code, keys, "up", textarea, cursorPosition);
+    highlightKey(e.code, keys, false, textarea, cursorPosition);
     checkIfSpecial(e.code, keys, capsShift);
     changeLang(e.code, keys, lang);
   });
