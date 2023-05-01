@@ -21,8 +21,6 @@ const parseCommandKeys = (key, code, textarea, cursorPositionWas) => {
   const text = textarea;
   text.selectionStart = cursorPosition.position;
 
-  console.log(cursorPosition, text.selectionStart, text.selectionEnd);
-
   switch (keyNumber) {
     case 0:
       if (text.selectionStart === text.selectionEnd) {

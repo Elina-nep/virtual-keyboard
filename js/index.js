@@ -3,6 +3,7 @@ import addListener from "./addListener.js";
 import highlightKey from "./highlightKey.js";
 import checkIfSpecial from "./checkIfSpecial.js";
 import changeLang from "./changeLang.js";
+import changeKeysLang from "./changeKeysLang.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".body").innerHTML = formLayout();
@@ -15,7 +16,14 @@ window.addEventListener("DOMContentLoaded", () => {
   const lang = {
     LCtrl: false,
     LAlt: false,
+    currLang: localStorage.getItem("currLang")
+      ? localStorage.getItem("currLang")
+      : "rus",
   };
+
+  if (lang.currLang === "eng") {
+    changeKeysLang(keys);
+  }
 
   const cursorPosition = {
     position: textarea.selectionStart,
@@ -37,5 +45,8 @@ window.addEventListener("DOMContentLoaded", () => {
     highlightKey(e.code, keys, "up", textarea, cursorPosition);
     checkIfSpecial(e.code, keys, capsShift);
     changeLang(e.code, keys, lang);
+  });
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("currLang", lang.currLang);
   });
 });
